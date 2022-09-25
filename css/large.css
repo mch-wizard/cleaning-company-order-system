@@ -1,0 +1,94 @@
+.nav__logo {
+  margin-left: 50px;
+  font-size: 25px;
+}
+
+.nav-menu {
+  margin-right: 50px;
+}
+
+.nav-box {
+  top: 90.4px;
+}
+
+.introduction-arrow {
+  bottom: 90px;
+}
+
+.services {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.service-start {
+  margin: 20px;
+}
+
+.order-info-box {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding-top: 50px;
+}
+
+.order-quantity-box {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.order-info-desc {
+  margin: 5px;
+}
+
+.order-cart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.additional-services-box {
+  grid-template-columns: repeat(4, 200px);
+  -webkit-column-gap: 40px;
+     -moz-column-gap: 40px;
+          column-gap: 40px;
+  row-gap: 20px;
+  grid-auto-rows: minmax(180px, auto);
+}
+
+.payments-box {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.payments-info:first-child {
+  margin-right: 40px;
+}
+
+.contact__title {
+  padding-bottom: 40px;
+  font-size: 35px;
+}
+
+.footer__title {
+  text-align: left;
+}
+
+.footer-box {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.footer-box__item {
+  width: 180px;
+}/*# sourceMappingURL=large.css.map */

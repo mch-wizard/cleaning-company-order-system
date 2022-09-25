@@ -1,0 +1,80 @@
+// navigation
+.nav__logo {
+    margin-left: 50px;
+    font-size: 25px;
+}
+
+.nav-menu {
+    margin-right: 50px;
+}
+
+.nav-box {
+    top: 90.4px;
+}
+
+// introduction
+.introduction-arrow {
+    bottom: 90px;
+}
+.services {
+    flex-direction: row;
+}
+
+.service-start {
+    margin: 20px;
+}
+
+// order
+.order-info-box {
+    flex-direction: row;
+    padding-top: 50px;
+}
+
+.order-quantity-box {
+    flex-direction: row;
+}
+
+.order-info-desc {
+    margin: 5px;
+}
+
+.order-cart {
+    display: flex;
+}
+
+.additional-services-box {
+    
+    grid-template-columns: repeat(4, 200px);
+    column-gap: 40px;
+    row-gap: 20px;
+    grid-auto-rows: minmax(180px, auto);
+}
+
+//payments
+.payments-box {
+    flex-direction: row;
+}
+
+.payments-info:first-child {
+    margin-right: 40px;
+}
+
+// contact
+.contact__title {
+    padding-bottom: 40px;
+    font-size: 35px;
+}
+
+// footer
+.footer__title {
+    text-align: left;
+}
+
+.footer-box {
+    justify-content: space-between;
+    flex-direction: row;
+    
+    &__item {
+        width: 180px;
+    }
+}
