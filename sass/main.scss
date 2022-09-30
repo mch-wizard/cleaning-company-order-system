@@ -374,6 +374,7 @@ body {
 
 
 // order
+
 .order {
     background-color: rgb(240, 239, 239);
     // padding: 20px 20px;
@@ -419,6 +420,21 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.service-info-button {
+    margin: 20px 0;
+    padding: 10px 20px;
+    border: 1px solid #626262;
+    border-radius: 20px;
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        background-color: $dark-color;
+        color: $light-color;
+        border: $dark-color;
+    }
 }
 
 .order-info-desc {
@@ -586,6 +602,44 @@ body {
 
 .additional-services-button  {
     background-color: #D9D9D9;
+}
+
+
+.order-package {
+    margin: 20px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 0;
+    // background-color: #D9D9D9;
+    border: 1px solid $dark-color;
+    border-radius: 20px;
+    width: 100%;
+
+    &__price {
+        margin: 30px 0 30px 0;
+        font-size: 24px;
+    }
+
+    &__info-quantity {
+        margin: 20px 0;
+    }
+}
+
+.package-description {
+    padding: 10px 30px 30px 30px;
+    border-bottom: 1px solid $dark-color;
+    
+    &__title {
+        margin-bottom: 20px;
+    }
+
+}
+
+.package-description-info {
+    text-align: start;
 }
 
 // ---payments

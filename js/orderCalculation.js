@@ -113,8 +113,20 @@ let generateFourthService = () => {
             let { id, category, name, price } = x;
             let search = appStorage.find(x => x.id === id) || [];
             return `
-            <div id=service-id-${id} class="order-quantity">
-                <h3 class="order-quantity__title">${name}:</h3>
+            <div id=service-id-${id} class="order-package">
+                <h3 class="order-package__title">${name}</h3>
+                <p class="order-package__price">${price} zł</p>
+                <div class="package-description">
+                    <h3 class="package-description__title">Zakres obejmuje:</h3>
+                    <ul class="package-description-info">
+                        <li class="package-description-info__item">1 nagrobek</li>
+                        <li class="package-description-info__item">prace porządkowe wokół</li>
+                        <li class="package-description-info__item">mycie nawierzchni nagrobka / grobu</li>
+                        <li class="package-description-info__item">grabanie liści</li>
+                        <li class="package-description-info__item">wyrzucenie śmieci</li>
+                    </ul>
+                </div>
+                <p class="order-package__info-quantity">Podaj ilość:</p>
                 <div class="quantity-buttons">
                     <button onclick="decrement(${id})" class="quantity-buttons__button"> - </button> 
                     <div id=${id} class="quantity">

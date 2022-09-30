@@ -63,8 +63,43 @@ var orderItemsData = [{
 }, {
   id: "sn000001",
   category: "Sprzątanie nagrobków",
-  name: "Nagrobek",
-  price: "40.00"
+  name: "Pakiet Podstawowy",
+  price: "79.00"
+}, {
+  id: "sn000002",
+  category: "Sprzątanie nagrobków",
+  name: "Pakiet Premium",
+  price: "99.00"
+}, {
+  id: "sn000003",
+  category: "Sprzątanie nagrobków",
+  name: "Pakiet Indywidualny",
+  price: "200.00"
+}, {
+  id: "snd000001",
+  category: "Sprzątanie nagrobków - usługa dodatkowa",
+  name: "Zapalenie dwóch zniczy",
+  price: "25.00"
+}, {
+  id: "snd000002",
+  category: "Sprzątanie nagrobków - usługa dodatkowa",
+  name: "Impregnacja specjalnym środkiem",
+  price: "55.00"
+}, {
+  id: "snd000003",
+  category: "Sprzątanie nagrobków - usługa dodatkowa",
+  name: "Kwiaty żywe - mały",
+  price: "60.00"
+}, {
+  id: "snd000004",
+  category: "Sprzątanie nagrobków - usługa dodatkowa",
+  name: "Kwiaty żywe - średni",
+  price: "110.00"
+}, {
+  id: "snd000005",
+  category: "Sprzątanie nagrobków - usługa dodatkowa",
+  name: "Kwiaty żywe - duży",
+  price: "200.00"
 }, {
   id: "spd000001",
   category: "Sprzątanie podstawowe - usługa dodatkowa",

@@ -350,6 +350,20 @@ body {
   flex-direction: column;
 }
 
+.service-info-button {
+  margin: 20px 0;
+  padding: 10px 20px;
+  border: 1px solid #626262;
+  border-radius: 20px;
+  font-size: 14px;
+  transition: all 0.3s ease-in-out;
+}
+.service-info-button:hover {
+  background-color: #171717;
+  color: #FFFFFF;
+  border: #171717;
+}
+
 .order-info-desc {
   margin-bottom: 40px;
   height: 340px;
@@ -472,6 +486,38 @@ body {
 
 .additional-services-button {
   background-color: #D9D9D9;
+}
+
+.order-package {
+  margin: 20px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 30px 0;
+  border: 1px solid #171717;
+  border-radius: 20px;
+  width: 100%;
+}
+.order-package__price {
+  margin: 30px 0 30px 0;
+  font-size: 24px;
+}
+.order-package__info-quantity {
+  margin: 20px 0;
+}
+
+.package-description {
+  padding: 10px 30px 30px 30px;
+  border-bottom: 1px solid #171717;
+}
+.package-description__title {
+  margin-bottom: 20px;
+}
+
+.package-description-info {
+  text-align: start;
 }
 
 .payments {
