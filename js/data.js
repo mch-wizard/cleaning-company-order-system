@@ -56,7 +56,7 @@ let orderItemsData = [
 	{
 		id: "dc000007",
 		category: "Pranie chemiczne",
-		name: "Pranie krzesła/taboretu/fotela biurowego",
+		name: "Pranie krzesła/ taboretu/ fotela biurowego",
 		price: "15.00",
 	},
 	{
@@ -92,29 +92,35 @@ let orderItemsData = [
 	{
 		id: "snd000001",
 		category: "Sprzątanie nagrobków - usługa dodatkowa",
-		name: "Zapalenie dwóch zniczy",
-		price: "25.00",
+		name: "Zapalenie znicza - mały",
+		price: "10.00",
 	},
 	{
 		id: "snd000002",
 		category: "Sprzątanie nagrobków - usługa dodatkowa",
-		name: "Impregnacja specjalnym środkiem",
-		price: "55.00",
+		name: "Zapalenie znicza - średni",
+		price: "20.00",
 	},
 	{
 		id: "snd000003",
+		category: "Sprzątanie nagrobków - usługa dodatkowa",
+		name: "Zapalenie znicza - duży",
+		price: "40.00",
+	},
+	{
+		id: "snd000004",
 		category: "Sprzątanie nagrobków - usługa dodatkowa",
 		name: "Kwiaty żywe - mały",
 		price: "60.00",
 	},
 	{
-		id: "snd000004",
+		id: "snd000005",
 		category: "Sprzątanie nagrobków - usługa dodatkowa",
 		name: "Kwiaty żywe - średni",
 		price: "110.00",
 	},
 	{
-		id: "snd000005",
+		id: "snd000006",
 		category: "Sprzątanie nagrobków - usługa dodatkowa",
 		name: "Kwiaty żywe - duży",
 		price: "200.00",

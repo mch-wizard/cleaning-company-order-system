@@ -32,6 +32,14 @@
 
 .order-quantity-box {
     flex-direction: row;
+
+    &--modified {
+        display: grid;
+        grid-template-columns: repeat(4, 200px);
+        column-gap: 40px;
+        row-gap: 20px;
+        grid-auto-rows: minmax(250px, auto);
+    }
 }
 
 .order-info-desc {
@@ -43,11 +51,29 @@
 }
 
 .additional-services-box {
-    
     grid-template-columns: repeat(4, 200px);
     column-gap: 40px;
     row-gap: 20px;
-    grid-auto-rows: minmax(180px, auto);
+    grid-auto-rows: minmax(250px, auto);
+}
+
+.additional-services-item {
+    &__title {
+        margin: 20px 0 5px 0;
+
+    }
+}
+
+.additional-input-box {
+    grid-template-columns: repeat(3, 200px);
+    column-gap: 40px;
+    row-gap: 20px;
+    grid-auto-rows: minmax(250px, auto);
+}
+
+.additional-item-img {
+    height: 200px;
+    width: 200px;
 }
 
 //payments
@@ -57,6 +83,18 @@
 
 .payments-info:first-child {
     margin-right: 40px;
+}
+
+// summary
+.cart-item {
+    margin: 20px 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+
 }
 
 // contact

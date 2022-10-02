@@ -4,6 +4,7 @@ let thirdService = document.querySelector('#thirdService');
 let fourthService = document.querySelector('#fourthService');
 
 let additionalBasicServBox = document.querySelector('#firstService-additional');
+let additionalServicesBoxFourthService = document.querySelector('#fourthService-additional')
 
 let shoppingCart = document.querySelector('#cart-box');
 let label = document.querySelector('#cart-label');
@@ -41,6 +42,39 @@ let generateFirstService = () => {
 };
 
 generateFirstService();
+
+// Generate Additional Basic Services Box function
+let generateAdditionalBasicServBox = () => {
+    const filterQuery = { category: "Sprzątanie podstawowe - usługa dodatkowa" };
+
+    const filteredData = orderItemsData.filter(item => Object.keys(filterQuery).every(key => item[key] === filterQuery[key]))
+    console.log(filteredData);
+
+    return (additionalBasicServBox.innerHTML = filteredData
+        .map(x => {
+            let { id, category, name, price } = x;
+            let search = appStorage.find(x => x.id === id) || [];
+            return `
+            <div id=service-id-${id} class="additional-services-item">
+                <h3 class="additional-services-item__title">${name}</h3>
+                <div class="additional-services-info">
+                    <div class="additional-services-info__img"></div>
+                    <p class="additional-services-info__price">${price} zł</p>
+                </div>
+                <div class="quantity-buttons">
+                    <button onclick="decrement(${id})" class="quantity-buttons__button additional-services-button"> - </button> 
+                    <div id=${id} class="quantity">
+                    ${search.item === undefined ? 0 : search.item}
+                    </div>
+                    <button onclick="increment(${id})" class="quantity-buttons__button additional-services-button"> + </button>
+                </div>
+            </div>
+            `;
+        })
+        .join(''));
+};
+
+generateAdditionalBasicServBox();
 
 // Generate Second Service function
 let generateSecondService = () => {
@@ -120,10 +154,11 @@ let generateFourthService = () => {
                     <h3 class="package-description__title">Zakres obejmuje:</h3>
                     <ul class="package-description-info">
                         <li class="package-description-info__item">1 nagrobek</li>
-                        <li class="package-description-info__item">prace porządkowe wokół</li>
-                        <li class="package-description-info__item">mycie nawierzchni nagrobka / grobu</li>
+                        <li class="package-description-info__item">usuwanie wypalonych zniczy</li>
+                        <li class="package-description-info__item">usuwanie zwiędłych kwiatów</li>
                         <li class="package-description-info__item">grabanie liści</li>
                         <li class="package-description-info__item">wyrzucenie śmieci</li>
+                        <li class="package-description-info__item">impregnacja specjalnym środkiem</li>
                     </ul>
                 </div>
                 <p class="order-package__info-quantity">Podaj ilość:</p>
@@ -143,13 +178,13 @@ let generateFourthService = () => {
 generateFourthService();
 
 // Generate Additional Basic Services Box function
-let generateAdditionalBasicServBox = () => {
-    const filterQuery = { category: "Sprzątanie podstawowe - usługa dodatkowa" };
+let generateAdditionalServicesBoxFourthService = () => {
+    const filterQuery = { category: "Sprzątanie nagrobków - usługa dodatkowa" };
 
     const filteredData = orderItemsData.filter(item => Object.keys(filterQuery).every(key => item[key] === filterQuery[key]))
     console.log(filteredData);
 
-    return (additionalBasicServBox.innerHTML = filteredData
+    return (additionalServicesBoxFourthService.innerHTML = filteredData
         .map(x => {
             let { id, category, name, price } = x;
             let search = appStorage.find(x => x.id === id) || [];
@@ -173,7 +208,7 @@ let generateAdditionalBasicServBox = () => {
         .join(''));
 };
 
-generateAdditionalBasicServBox();
+generateAdditionalServicesBoxFourthService();
 
 // Generate Cart Items function
 let generateCartItems = () => {
@@ -211,8 +246,8 @@ let generateSummaryItems = () => {
                 let search = orderItemsData.find(x => x.id === id) || [];
                 return `
                     <div class="cart-item">
-                        <h4 class="item-title">${search.category} - ${search.name}</h4>
-                        <p class="item-price">${search.price} zł</p>
+                        <p class="cart-item__title">${search.category} - ${search.name}:</p>
+                        <p class="cart-item__price">${search.price} zł</p>
                     </div>
                 `;
             })
@@ -316,6 +351,7 @@ let clearCart = () => {
     generateSecondService();
     generateThirdService();
     generateFourthService();
+    generateAdditionalServicesBoxFourthService();
     localStorage.setItem('data', JSON.stringify(appStorage));
 };
 
@@ -336,12 +372,26 @@ let totalAmount = () => {
         let roundedAmount = amount.toFixed(2);
 
         label.innerHTML = `
-        <h4 class="cart-summary">Do zapłaty:  ${roundedAmount} zł</h4>
+        <div class="selected-payment">
+            <input type="hidden" id="selected-payment" name="selected-payment" value="Płatność gotówką na miejscu">
+            <label for="selected-payment">Płatność gotówką na miejscu</label>
+        </div>
+        <div class="cart-summary-box">
+            <h4 class="cart-summary-box__info">Do zapłaty:</h4>
+            <h4 class="cart-summary-box__value">${roundedAmount} zł</h4>
+        </div>
         <button onclick="clearCart()" class="removeAll">Usuń wszystko</button>
         `;
 
         summaryLabel.innerHTML = `
-        <h4 class="cart-summary">Do zapłaty:  ${roundedAmount} zł</h4>
+        <div class="selected-payment">
+            <input type="hidden" id="selected-payment" name="selected-payment" value="Płatność gotówką na miejscu">
+            <label for="selected-payment">Płatność gotówką na miejscu</label>
+        </div>
+        <div class="cart-summary-box">
+            <h4 class="cart-summary-box__info">Do zapłaty:</h4>
+            <h4 class="cart-summary-box__value">${roundedAmount} zł</h4>
+        </div>
         <button onclick="clearCart()" class="removeAll">Usuń wszystko</button>
         `;
     } else return;
