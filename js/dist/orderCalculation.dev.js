@@ -164,7 +164,7 @@ var generateCartItems = function generateCartItems() {
         return x.id === id;
       }) || [];
       console.log(search);
-      return "\n                    <div class=\"cart-item\">\n                        <h4 class=\"item-title\">".concat(search.category, " - ").concat(search.name, "</h4>\n                        <p class=\"item-price\">").concat(search.price, " z\u0142</p>\n                    </div>\n                ");
+      return "\n                    <div class=\"cart-item-menu\">\n                        <p class=\"cart-item-menu__title\">".concat(search.category, " - ").concat(search.name, "</p>\n                        <p class=\"cart-item-menu__price\">").concat(search.price, " z\u0142</p>\n                    </div>\n                ");
     }).join('');
   } else {
     shoppingCart.innerHTML = "";

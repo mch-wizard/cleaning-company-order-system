@@ -220,9 +220,9 @@ let generateCartItems = () => {
 
                 console.log(search)
                 return `
-                    <div class="cart-item">
-                        <h4 class="item-title">${search.category} - ${search.name}</h4>
-                        <p class="item-price">${search.price} zł</p>
+                    <div class="cart-item-menu">
+                        <p class="cart-item-menu__title">${search.category} - ${search.name}</p>
+                        <p class="cart-item-menu__price">${search.price} zł</p>
                     </div>
                 `;
             })

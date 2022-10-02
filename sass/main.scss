@@ -201,10 +201,10 @@ body {
 }
 
 .cart {
-    overflow: scroll;
+    overflow: auto;
     display: none;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     background-color: $light-color;
     position: absolute;
     top: 79.4px;
@@ -220,6 +220,24 @@ body {
 
 .cart-box {
     margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cart-item-menu {
+    margin: 10px 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &__price {
+        font-weight: bold;
+    }
 }
 
 .cart-summary {
@@ -227,11 +245,12 @@ body {
 }
 
 .cart-label {
+    // width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border-top: 1px solid $dark-color;
+    // border-top: 1px solid $dark-color;
 }
 
 .cart--active {
