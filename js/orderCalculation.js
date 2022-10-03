@@ -12,6 +12,9 @@ let label = document.querySelector('#cart-label');
 let summaryInfo = document.querySelector('#summary-info-box');
 let summaryLabel = document.querySelector('#summary-label');
 
+let orderItemsBox = document.querySelector('#orderItemsBox');
+let orderItemsSummary = document.querySelector('#orderItemsSummary');
+
 let appStorage = JSON.parse(localStorage.getItem('data')) || [];
 
 // Generate First Service function
@@ -262,6 +265,28 @@ let generateSummaryItems = () => {
 
 generateSummaryItems();
 
+// Generate Form Input Items function
+let generateFormInputItems = () => {
+    if (appStorage.length !== 0) {
+        return (orderItemsBox.innerHTML = appStorage
+            .map(x => {
+                let { id } = x;
+                let search = orderItemsData.find(x => x.id === id) || [];
+                return `
+                    <input type="hidden" id="service-${search.id}" "name="${search.category}" value="${search.name}: ${search.price} zł">
+                `;
+            })
+            .join(''));
+    } else {
+        orderItemsSummary.innerHTML = ``;
+        orderItemsBox.innerHTML = `
+            <input type="hidden" id="orderItemForm" "name="Brak_zamówienia:" value="Nie wybrano usługi">
+        `;
+    };
+};
+
+generateFormInputItems();
+
 // other increment function
 let otherIncrement = id => {
     let selectedItem = id;
@@ -280,6 +305,7 @@ let otherIncrement = id => {
 
     generateCartItems();
     generateSummaryItems();
+    // generateFormInputItems();
 
     update(selectedItem.id);
     localStorage.setItem('data', JSON.stringify(appStorage))
@@ -303,6 +329,7 @@ let increment = id => {
 
     generateCartItems();
     generateSummaryItems();
+    generateFormInputItems();
 
     update(selectedItem.id);
     localStorage.setItem('data', JSON.stringify(appStorage))
@@ -326,6 +353,7 @@ let decrement = id => {
 
     generateCartItems();
     generateSummaryItems();
+    generateFormInputItems();
     localStorage.setItem('data', JSON.stringify(appStorage));
 
 };
@@ -346,6 +374,7 @@ let clearCart = () => {
     appStorage = [];
     generateCartItems();
     generateSummaryItems();
+    generateFormInputItems();
     generateFirstService();
     generateAdditionalBasicServBox();
     generateSecondService();
@@ -393,6 +422,11 @@ let totalAmount = () => {
             <h4 class="cart-summary-box__value">${roundedAmount} zł</h4>
         </div>
         <button onclick="clearCart()" class="removeAll">Usuń wszystko</button>
+        `;
+
+        orderItemsSummary.innerHTML = `
+        <input type="hidden" id="orderItemsSummaryForm" "name="Do_zapłaty:" value="${roundedAmount} zł">
+        <input type="hidden" id="paymentsForm" name="Sposób_płatnośći:" value="Płatność gotówką na miejscu">
         `;
     } else return;
 };

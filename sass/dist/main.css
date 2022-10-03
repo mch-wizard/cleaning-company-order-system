@@ -653,6 +653,10 @@ body {
   padding: 40px 20px;
 }
 
+.input-display {
+  display: none;
+}
+
 .form-item {
   margin-bottom: 10px;
   display: flex;
