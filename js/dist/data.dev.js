@@ -173,8 +173,8 @@ var orderItemsData = [{
 }, {
   id: "spd000014",
   category: "Sprzątanie podstawowe - usługa dodatkowa",
-  name: "Czyszczenie żyrandola ?",
-  price: "10.00"
+  name: "Sprzątanie garderoby",
+  price: "15.00"
 }, {
   id: "spd000015",
   category: "Sprzątanie podstawowe - usługa dodatkowa",
@@ -185,53 +185,4 @@ var orderItemsData = [{
   category: "Sprzątanie podstawowe - usługa dodatkowa",
   name: "Sprzątanie kuwety",
   price: "30.00"
-}]; // let dryCleaningData = [
-// 	{
-// 		id: "dc000001",
-// 		category: "Pranie chemiczne",
-// 		name: "Pranie dywanu",
-// 		price: "40.00",
-// 	},
-// 	{
-// 		id: "dc000002",
-// 		category: "Pranie chemiczne",
-// 		name: "Pranie kanapy",
-// 		price: "105.00",
-// 	},
-// 	{
-// 		id: "dc000003",
-// 		category: "Pranie chemiczne",
-// 		name: "Pranie kanapy narożnej",
-// 		price: "125.00",
-// 	},
-// 	{
-// 		id: "dc000004",
-// 		category: "Pranie chemiczne",
-// 		name: "Pranie materaca z jednej strony",
-// 		price: "40.00",
-// 	},
-// 	{
-// 		id: "dc000005",
-// 		category: "Pranie chemiczne",
-// 		name: "Pranie materaca z dwóch stron",
-// 		price: "80.00",
-// 	},
-// 	{
-// 		id: "dc000006",
-// 		category: "Pranie chemiczne",
-// 		name: "Pranie fotela",
-// 		price: "80.00",
-// 	},
-// 	{
-// 		id: "dc000007",
-// 		category: "Pranie chemiczne",
-// 		name: "Pranie krzesła/taboretu/fotela biurowego",
-// 		price: "15.00",
-// 	},
-// 	{
-// 		id: "dc000008",
-// 		category: "Pranie chemiczne",
-// 		name: "Pranie wykładziny",
-// 		price: "40.00",
-// 	},
-// ];
+}];

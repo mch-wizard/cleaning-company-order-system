@@ -10,6 +10,8 @@ var shoppingCart = document.querySelector('#cart-box');
 var label = document.querySelector('#cart-label');
 var summaryInfo = document.querySelector('#summary-info-box');
 var summaryLabel = document.querySelector('#summary-label');
+var orderItemsBox = document.querySelector('#orderItemsBox');
+var orderItemsSummary = document.querySelector('#orderItemsSummary');
 var appStorage = JSON.parse(localStorage.getItem('data')) || []; // Generate First Service function
 
 var generateFirstService = function generateFirstService() {
@@ -193,7 +195,26 @@ var generateSummaryItems = function generateSummaryItems() {
   ;
 };
 
-generateSummaryItems(); // other increment function
+generateSummaryItems(); // Generate Form Input Items function
+
+var generateFormInputItems = function generateFormInputItems() {
+  if (appStorage.length !== 0) {
+    return orderItemsBox.innerHTML = appStorage.map(function (x) {
+      var id = x.id;
+      var search = orderItemsData.find(function (x) {
+        return x.id === id;
+      }) || [];
+      return "\n                    <input type=\"hidden\" id=\"service-".concat(search.id, "\" \"name=\"").concat(search.category, "\" value=\"").concat(search.name, ": ").concat(search.price, " z\u0142\">\n                ");
+    }).join('');
+  } else {
+    orderItemsSummary.innerHTML = "";
+    orderItemsBox.innerHTML = "\n            <input type=\"hidden\" id=\"orderItemForm\" \"name=\"Brak_zam\xF3wienia:\" value=\"Nie wybrano us\u0142ugi\">\n        ";
+  }
+
+  ;
+};
+
+generateFormInputItems(); // other increment function
 
 var otherIncrement = function otherIncrement(id) {
   var selectedItem = id;
@@ -213,7 +234,8 @@ var otherIncrement = function otherIncrement(id) {
   ;
   console.log(appStorage);
   generateCartItems();
-  generateSummaryItems();
+  generateSummaryItems(); // generateFormInputItems();
+
   update(selectedItem.id);
   localStorage.setItem('data', JSON.stringify(appStorage));
 }; // increment function
@@ -238,6 +260,7 @@ var increment = function increment(id) {
   console.log(appStorage);
   generateCartItems();
   generateSummaryItems();
+  generateFormInputItems();
   update(selectedItem.id);
   localStorage.setItem('data', JSON.stringify(appStorage));
 }; // decrement function
@@ -259,6 +282,7 @@ var decrement = function decrement(id) {
   console.log(appStorage);
   generateCartItems();
   generateSummaryItems();
+  generateFormInputItems();
   localStorage.setItem('data', JSON.stringify(appStorage));
 }; // update function
 
@@ -277,6 +301,7 @@ var clearCart = function clearCart() {
   appStorage = [];
   generateCartItems();
   generateSummaryItems();
+  generateFormInputItems();
   generateFirstService();
   generateAdditionalBasicServBox();
   generateSecondService();
@@ -303,6 +328,7 @@ var totalAmount = function totalAmount() {
     var roundedAmount = amount.toFixed(2);
     label.innerHTML = "\n        <div class=\"selected-payment\">\n            <input type=\"hidden\" id=\"selected-payment\" name=\"selected-payment\" value=\"P\u0142atno\u015B\u0107 got\xF3wk\u0105 na miejscu\">\n            <label for=\"selected-payment\">P\u0142atno\u015B\u0107 got\xF3wk\u0105 na miejscu</label>\n        </div>\n        <div class=\"cart-summary-box\">\n            <h4 class=\"cart-summary-box__info\">Do zap\u0142aty:</h4>\n            <h4 class=\"cart-summary-box__value\">".concat(roundedAmount, " z\u0142</h4>\n        </div>\n        <button onclick=\"clearCart()\" class=\"removeAll\">Usu\u0144 wszystko</button>\n        ");
     summaryLabel.innerHTML = "\n        <div class=\"selected-payment\">\n            <input type=\"hidden\" id=\"selected-payment\" name=\"selected-payment\" value=\"P\u0142atno\u015B\u0107 got\xF3wk\u0105 na miejscu\">\n            <label for=\"selected-payment\">P\u0142atno\u015B\u0107 got\xF3wk\u0105 na miejscu</label>\n        </div>\n        <div class=\"cart-summary-box\">\n            <h4 class=\"cart-summary-box__info\">Do zap\u0142aty:</h4>\n            <h4 class=\"cart-summary-box__value\">".concat(roundedAmount, " z\u0142</h4>\n        </div>\n        <button onclick=\"clearCart()\" class=\"removeAll\">Usu\u0144 wszystko</button>\n        ");
+    orderItemsSummary.innerHTML = "\n        <input type=\"hidden\" id=\"orderItemsSummaryForm\" \"name=\"Do_zap\u0142aty:\" value=\"".concat(roundedAmount, " z\u0142\">\n        <input type=\"hidden\" id=\"paymentsForm\" name=\"Spos\xF3b_p\u0142atno\u015B\u0107i:\" value=\"P\u0142atno\u015B\u0107 got\xF3wk\u0105 na miejscu\">\n        ");
   } else return;
 };
 
