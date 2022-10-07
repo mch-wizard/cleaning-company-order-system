@@ -4,7 +4,11 @@ var firstService = document.querySelector('#firstService');
 var secondService = document.querySelector('#secondService');
 var thirdService = document.querySelector('#thirdService');
 var fourthService = document.querySelector('#fourthService');
+var fourthServiceOne = document.querySelector('#fourthServiceOne');
+var fourthServiceTwo = document.querySelector('#fourthServiceTwo');
+var fourthServiceThree = document.querySelector('#fourthServiceThree');
 var additionalBasicServBox = document.querySelector('#firstService-additional');
+var additionalThirdServiceBox = document.querySelector('#thirdService-additional');
 var additionalServicesBoxFourthService = document.querySelector('#fourthService-additional');
 var shoppingCart = document.querySelector('#cart-box');
 var label = document.querySelector('#cart-label');
@@ -52,11 +56,12 @@ var generateAdditionalBasicServBox = function generateAdditionalBasicServBox() {
     var id = x.id,
         category = x.category,
         name = x.name,
+        img = x.img,
         price = x.price;
     var search = appStorage.find(function (x) {
       return x.id === id;
     }) || [];
-    return "\n            <div id=service-id-".concat(id, " class=\"additional-services-item\">\n                <h3 class=\"additional-services-item__title\">").concat(name, "</h3>\n                <div class=\"additional-services-info\">\n                    <div class=\"additional-services-info__img\"></div>\n                    <p class=\"additional-services-info__price\">").concat(price, " z\u0142</p>\n                </div>\n                <div class=\"quantity-buttons\">\n                    <button onclick=\"decrement(").concat(id, ")\" class=\"quantity-buttons__button additional-services-button\"> - </button> \n                    <div id=").concat(id, " class=\"quantity\">\n                    ").concat(search.item === undefined ? 0 : search.item, "\n                    </div>\n                    <button onclick=\"increment(").concat(id, ")\" class=\"quantity-buttons__button additional-services-button\"> + </button>\n                </div>\n            </div>\n            ");
+    return "\n            <div id=service-id-".concat(id, " class=\"additional-services-item\">\n                <h3 class=\"additional-services-item__title\">").concat(name, "</h3>\n                <div class=\"additional-services-info\">\n                    <img class=\"additional-services-info__img\" src=\"").concat(img, "\" alt=\"\">\n                    <p class=\"additional-services-info__price\">").concat(price, " z\u0142</p>\n                </div>\n                <div class=\"quantity-buttons\">\n                    <button onclick=\"decrement(").concat(id, ")\" class=\"quantity-buttons__button additional-services-button\"> - </button> \n                    <div id=").concat(id, " class=\"quantity\">\n                    ").concat(search.item === undefined ? 0 : search.item, "\n                    </div>\n                    <button onclick=\"increment(").concat(id, ")\" class=\"quantity-buttons__button additional-services-button\"> + </button>\n                </div>\n            </div>\n            ");
   }).join('');
 };
 
@@ -108,11 +113,11 @@ var generateThirdService = function generateThirdService() {
   }).join('');
 };
 
-generateThirdService(); // Generate Fourth Service function
+generateThirdService(); // Generate Additional Third Service Box function
 
-var generateFourthService = function generateFourthService() {
+var generateAdditionalThirdServiceBox = function generateAdditionalThirdServiceBox() {
   var filterQuery = {
-    category: "Sprzątanie nagrobków"
+    category: "Mobilne sprzątanie samochodu - usługa dodatkowa"
   };
   var filteredData = orderItemsData.filter(function (item) {
     return Object.keys(filterQuery).every(function (key) {
@@ -120,19 +125,115 @@ var generateFourthService = function generateFourthService() {
     });
   });
   console.log(filteredData);
-  return fourthService.innerHTML = filteredData.map(function (x) {
+  return additionalThirdServiceBox.innerHTML = filteredData.map(function (x) {
     var id = x.id,
         category = x.category,
         name = x.name,
+        img = x.img,
         price = x.price;
     var search = appStorage.find(function (x) {
       return x.id === id;
     }) || [];
-    return "\n            <div id=service-id-".concat(id, " class=\"order-package\">\n                <h3 class=\"order-package__title\">").concat(name, "</h3>\n                <p class=\"order-package__price\">").concat(price, " z\u0142</p>\n                <div class=\"package-description\">\n                    <h3 class=\"package-description__title\">Zakres obejmuje:</h3>\n                    <ul class=\"package-description-info\">\n                        <li class=\"package-description-info__item\">1 nagrobek</li>\n                        <li class=\"package-description-info__item\">usuwanie wypalonych zniczy</li>\n                        <li class=\"package-description-info__item\">usuwanie zwi\u0119d\u0142ych kwiat\xF3w</li>\n                        <li class=\"package-description-info__item\">grabanie li\u015Bci</li>\n                        <li class=\"package-description-info__item\">wyrzucenie \u015Bmieci</li>\n                        <li class=\"package-description-info__item\">impregnacja specjalnym \u015Brodkiem</li>\n                    </ul>\n                </div>\n                <p class=\"order-package__info-quantity\">Podaj ilo\u015B\u0107:</p>\n                <div class=\"quantity-buttons\">\n                    <button onclick=\"decrement(").concat(id, ")\" class=\"quantity-buttons__button\"> - </button> \n                    <div id=").concat(id, " class=\"quantity\">\n                    ").concat(search.item === undefined ? 0 : search.item, "\n                    </div>\n                    <button onclick=\"increment(").concat(id, ")\" class=\"quantity-buttons__button\"> + </button>\n                </div>\n            </div>\n            ");
+    return "\n            <div id=service-id-".concat(id, " class=\"additional-services-item\">\n                <h3 class=\"additional-services-item__title\">").concat(name, "</h3>\n                <div class=\"additional-services-info\">\n                    <img class=\"additional-services-info__img\" src=\"").concat(img, "\" alt=\"\">\n                    <p class=\"additional-services-info__price\">").concat(price, " z\u0142</p>\n                </div>\n                <div class=\"quantity-buttons\">\n                    <button onclick=\"decrement(").concat(id, ")\" class=\"quantity-buttons__button additional-services-button\"> - </button> \n                    <div id=").concat(id, " class=\"quantity\">\n                    ").concat(search.item === undefined ? 0 : search.item, "\n                    </div>\n                    <button onclick=\"increment(").concat(id, ")\" class=\"quantity-buttons__button additional-services-button\"> + </button>\n                </div>\n            </div>\n            ");
   }).join('');
 };
 
-generateFourthService(); // Generate Additional Basic Services Box function
+generateAdditionalThirdServiceBox(); // Generate Fourth Service function
+
+var generateFourthService = function generateFourthService() {
+  var filterQuery = {
+    name: "Pakiet Podstawowy"
+  };
+  var filteredData = orderItemsData.filter(function (item) {
+    return Object.keys(filterQuery).every(function (key) {
+      return item[key] === filterQuery[key];
+    });
+  });
+  console.log(filteredData);
+  return fourthServiceOne.innerHTML = filteredData.map(function (x) {
+    var id = x.id,
+        category = x.category,
+        name = x.name,
+        price = x.price,
+        quantity = x.quantity,
+        service1 = x.service1,
+        service2 = x.service2,
+        service3 = x.service3,
+        service4 = x.service4,
+        service5 = x.service5,
+        service6 = x.service6,
+        service7 = x.service7,
+        service8 = x.service8,
+        service9 = x.service9,
+        service10 = x.service10,
+        service11 = x.service11,
+        service12 = x.service12,
+        service13 = x.service13,
+        service14 = x.service14,
+        service15 = x.service15;
+    var search = appStorage.find(function (x) {
+      return x.id === id;
+    }) || [];
+    return "\n                <div id=service-id-".concat(id, " >\n                    <h3 class=\"order-package__title\">").concat(name, "</h3>\n                    <p class=\"order-package__price\">").concat(price, " z\u0142</p>\n                    <div class=\"package-description\">\n                        <h3 class=\"package-description__title\">Zakres obejmuje:</h3>\n                        <ul class=\"package-description-info\">\n                            <li class=\"package-description-info__item\">").concat(quantity, "</li>\n                            <li class=\"package-description-info__item\">").concat(service1, "</li>\n                            <li class=\"package-description-info__item\">").concat(service2, "</li>\n                            <li class=\"package-description-info__item\">").concat(service3, "</li>\n                            <li class=\"package-description-info__item\">").concat(service4, "</li>\n                            <li class=\"package-description-info__item\">").concat(service5, "</li>\n                            <li class=\"package-description-info__item\">").concat(service6, "</li>\n                            <li class=\"package-description-info__item\">").concat(service7, "</li>\n                            <li class=\"package-description-info__item\">").concat(service8, "</li>\n                        </ul>\n                    </div>\n                    <p class=\"order-package__info-quantity\">Podaj ilo\u015B\u0107:</p>\n                    <div class=\"quantity-buttons\">\n                        <button onclick=\"decrement(").concat(id, ")\" class=\"quantity-buttons__button quantity-buttons__button--modified\"> - </button> \n                        <div id=").concat(id, " class=\"quantity\">\n                        ").concat(search.item === undefined ? 0 : search.item, "\n                        </div>\n                        <button onclick=\"increment(").concat(id, ")\" class=\"quantity-buttons__button quantity-buttons__button--modified\"> + </button>\n                    </div>\n                </div>\n            ");
+  }).join('');
+};
+
+generateFourthService();
+
+var generateFourthServiceTwo = function generateFourthServiceTwo() {
+  var filterQuery = {
+    name: "Pakiet Premium"
+  };
+  var filteredData = orderItemsData.filter(function (item) {
+    return Object.keys(filterQuery).every(function (key) {
+      return item[key] === filterQuery[key];
+    });
+  });
+  console.log(filteredData);
+  return fourthServiceTwo.innerHTML = filteredData.map(function (x) {
+    var id = x.id,
+        category = x.category,
+        name = x.name,
+        price = x.price,
+        service9 = x.service9,
+        service10 = x.service10,
+        service11 = x.service11,
+        service12 = x.service12;
+    var search = appStorage.find(function (x) {
+      return x.id === id;
+    }) || [];
+    return "\n                <div id=service-id-".concat(id, " >\n                    <h3 class=\"order-package__title\">").concat(name, "</h3>\n                    <p class=\"order-package__price\">").concat(price, " z\u0142</p>\n                    <div class=\"package-description\">\n                        <h3 class=\"package-description__title\">Zakres obejmuje:</h3>\n                        <ul class=\"package-description-info\">\n                            <li class=\"package-description-info__item\">").concat(service9, "</li>\n                            <li class=\"package-description-info__item\">").concat(service10, "</li>\n                            <li class=\"package-description-info__item\">").concat(service11, "</li>\n                            <li class=\"package-description-info__item\">").concat(service12, "</li>\n                        </ul>\n                    </div>\n                    <p class=\"order-package__info-quantity\">Podaj ilo\u015B\u0107:</p>\n                    <div class=\"quantity-buttons\">\n                        <button onclick=\"decrement(").concat(id, ")\" class=\"quantity-buttons__button quantity-buttons__button--modified\"> - </button> \n                        <div id=").concat(id, " class=\"quantity\">\n                        ").concat(search.item === undefined ? 0 : search.item, "\n                        </div>\n                        <button onclick=\"increment(").concat(id, ")\" class=\"quantity-buttons__button quantity-buttons__button--modified\"> + </button>\n                    </div>\n                </div>\n            ");
+  }).join('');
+};
+
+generateFourthServiceTwo();
+
+var generateFourthServiceThree = function generateFourthServiceThree() {
+  var filterQuery = {
+    name: "Pakiet Złoty"
+  };
+  var filteredData = orderItemsData.filter(function (item) {
+    return Object.keys(filterQuery).every(function (key) {
+      return item[key] === filterQuery[key];
+    });
+  });
+  console.log(filteredData);
+  return fourthServiceThree.innerHTML = filteredData.map(function (x) {
+    var id = x.id,
+        category = x.category,
+        name = x.name,
+        price = x.price,
+        service13 = x.service13,
+        service14 = x.service14,
+        service15 = x.service15;
+    var search = appStorage.find(function (x) {
+      return x.id === id;
+    }) || [];
+    return "\n                <div id=service-id-".concat(id, " >\n                    <h3 class=\"order-package__title\">").concat(name, "</h3>\n                    <p class=\"order-package__price\">").concat(price, " z\u0142</p>\n                    <div class=\"package-description\">\n                        <h3 class=\"package-description__title\">Zakres obejmuje:</h3>\n                        <ul class=\"package-description-info\">\n                            <li class=\"package-description-info__item\">").concat(service13, "</li>\n                            <li class=\"package-description-info__item\">").concat(service14, "</li>\n                            <li class=\"package-description-info__item\">").concat(service15, "</li>\n                        </ul>\n                    </div>\n                    <p class=\"order-package__info-quantity\">Podaj ilo\u015B\u0107:</p>\n                    <div class=\"quantity-buttons\">\n                        <button onclick=\"decrement(").concat(id, ")\" class=\"quantity-buttons__button quantity-buttons__button--modified\"> - </button> \n                        <div id=").concat(id, " class=\"quantity\">\n                        ").concat(search.item === undefined ? 0 : search.item, "\n                        </div>\n                        <button onclick=\"increment(").concat(id, ")\" class=\"quantity-buttons__button quantity-buttons__button--modified\"> + </button>\n                    </div>\n                </div>\n            ");
+  }).join('');
+};
+
+generateFourthServiceThree(); // Generate Additional Basic Services Box function
 
 var generateAdditionalServicesBoxFourthService = function generateAdditionalServicesBoxFourthService() {
   var filterQuery = {
@@ -148,11 +249,12 @@ var generateAdditionalServicesBoxFourthService = function generateAdditionalServ
     var id = x.id,
         category = x.category,
         name = x.name,
+        img = x.img,
         price = x.price;
     var search = appStorage.find(function (x) {
       return x.id === id;
     }) || [];
-    return "\n            <div id=service-id-".concat(id, " class=\"additional-services-item\">\n                <h3 class=\"additional-services-item__title\">").concat(name, "</h3>\n                <div class=\"additional-services-info\">\n                    <div class=\"additional-services-info__img\"></div>\n                    <p class=\"additional-services-info__price\">").concat(price, " z\u0142</p>\n                </div>\n                <div class=\"quantity-buttons\">\n                    <button onclick=\"decrement(").concat(id, ")\" class=\"quantity-buttons__button additional-services-button\"> - </button> \n                    <div id=").concat(id, " class=\"quantity\">\n                    ").concat(search.item === undefined ? 0 : search.item, "\n                    </div>\n                    <button onclick=\"increment(").concat(id, ")\" class=\"quantity-buttons__button additional-services-button\"> + </button>\n                </div>\n            </div>\n            ");
+    return "\n            <div id=service-id-".concat(id, " class=\"additional-services-item additional-services-item--modified\">\n                <h3 class=\"additional-services-item__title\">").concat(name, "</h3>\n                <div class=\"additional-services-info\">\n                    <img class=\"additional-services-info__img\" src=\"").concat(img, "\" alt=\"\">\n                    <p class=\"additional-services-info__price\">").concat(price, " z\u0142</p>\n                </div>\n                <div class=\"quantity-buttons\">\n                    <button onclick=\"decrement(").concat(id, ")\" class=\"quantity-buttons__button additional-services-button\"> - </button> \n                    <div id=").concat(id, " class=\"quantity\">\n                    ").concat(search.item === undefined ? 0 : search.item, "\n                    </div>\n                    <button onclick=\"increment(").concat(id, ")\" class=\"quantity-buttons__button additional-services-button\"> + </button>\n                </div>\n            </div>\n            ");
   }).join('');
 };
 
@@ -306,6 +408,7 @@ var clearCart = function clearCart() {
   generateAdditionalBasicServBox();
   generateSecondService();
   generateThirdService();
+  generateAdditionalThirdServiceBox();
   generateFourthService();
   generateAdditionalServicesBoxFourthService();
   localStorage.setItem('data', JSON.stringify(appStorage));
