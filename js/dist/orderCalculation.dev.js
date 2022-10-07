@@ -410,6 +410,8 @@ var clearCart = function clearCart() {
   generateThirdService();
   generateAdditionalThirdServiceBox();
   generateFourthService();
+  generateFourthServiceTwo();
+  generateFourthServiceThree();
   generateAdditionalServicesBoxFourthService();
   localStorage.setItem('data', JSON.stringify(appStorage));
 }; // Total Amount function
