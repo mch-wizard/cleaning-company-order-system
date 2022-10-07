@@ -350,7 +350,7 @@ body {
     &__img {
         height: 120px;
         width: 140px;
-        border: 1px solid $dark-color;
+        // border: 1px solid $dark-color;
         border-radius: 20px;
     }
 
@@ -397,6 +397,11 @@ body {
     &__title-info {
         padding: 20px 20px;
     }
+
+    &--modified {
+        background-color: $dark-color;
+        color: $light-color;
+    }
 }
 
 .active {
@@ -437,6 +442,17 @@ body {
         color: $light-color;
         border: $dark-color;
     }
+
+    &--modified {
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            background-color: #62bcfd;
+            color: $dark-color;
+            border: #62bcfd;
+        }
+        
+    }
 }
 
 .service-info-box {
@@ -462,6 +478,10 @@ body {
     &__title {
         margin-bottom: 30px;
         text-align: center;
+    }
+
+    &--modified {
+        height: 240px;
     }
 }
 
@@ -508,6 +528,11 @@ body {
         padding: 10px 30px;
         font-size: 25px;
         font-weight: bold;
+
+        &--modified {
+            background-color: $dark-color;
+            color: $light-color;
+        }
     }
 }
 
@@ -519,7 +544,7 @@ body {
 
 .additional-services {
     padding-top: 70px;
-    border-top: 1px solid black;
+    border-top: 1px solid $dark-color;
     
     &__title, &__title-info {
         text-align: center;
@@ -528,6 +553,10 @@ body {
     &__title-box {
         padding-top: 70px;
         text-align: center;
+    }
+
+    &--modified {
+        border-top: 1px solid $light-color;
     }
 }
 
@@ -557,6 +586,10 @@ body {
         font-weight: normal;
 
     }
+
+    &--modified {
+        color: $dark-color;
+    }
 }
 
 .additional-services-info {
@@ -568,10 +601,10 @@ body {
     &__img {
         margin-bottom: 5px;
         height: 60px;
-        width: 90px;
-        border: 1px solid rgb(179, 179, 179);
-        border-radius: 20px;
-        background-color: rgb(179, 179, 179);
+        width: 80px;
+        // border: 1px solid rgb(179, 179, 179);
+        // border-radius: 20px;
+        // background-color: rgb(179, 179, 179);
     }
 
     &__price {
@@ -580,6 +613,10 @@ body {
         background-color: #BEE3FE;
         border-radius: 20px;
         font-size: 17px;
+
+        &--modified {
+            color: $dark-color;
+        }
     }
 }
 
@@ -614,6 +651,10 @@ body {
     width: 100px;
     background-color: rgb(179, 179, 179);
     border-radius: 20px;
+    
+    &--modified {
+        background-color: $light-color;
+    }
 }
 
 .item-input {
@@ -635,9 +676,11 @@ body {
     text-align: center;
     padding: 30px 0;
     // background-color: #D9D9D9;
-    border: 1px solid $dark-color;
+    border: 1px solid $light-color;
     border-radius: 20px;
+    height: 632px;
     width: 100%;
+    transition: all 0.3s;
 
     &__price {
         margin: 30px 0 30px 0;
@@ -647,11 +690,17 @@ body {
     &__info-quantity {
         margin: 20px 0;
     }
+
+    &:hover {
+        box-shadow: 0px 0px 20px $light-color;
+        transform: scale(1.1);
+    }
 }
 
 .package-description {
     padding: 10px 30px 30px 30px;
-    border-bottom: 1px solid $dark-color;
+    border-bottom: 1px solid $light-color;
+    height: 334px;
     
     &__title {
         margin-bottom: 20px;

@@ -3,7 +3,12 @@ let secondService = document.querySelector('#secondService');
 let thirdService = document.querySelector('#thirdService');
 let fourthService = document.querySelector('#fourthService');
 
+let fourthServiceOne = document.querySelector('#fourthServiceOne');
+let fourthServiceTwo = document.querySelector('#fourthServiceTwo');
+let fourthServiceThree = document.querySelector('#fourthServiceThree');
+
 let additionalBasicServBox = document.querySelector('#firstService-additional');
+let additionalThirdServiceBox = document.querySelector('#thirdService-additional')
 let additionalServicesBoxFourthService = document.querySelector('#fourthService-additional')
 
 let shoppingCart = document.querySelector('#cart-box');
@@ -55,13 +60,13 @@ let generateAdditionalBasicServBox = () => {
 
     return (additionalBasicServBox.innerHTML = filteredData
         .map(x => {
-            let { id, category, name, price } = x;
+            let { id, category, name, img, price } = x;
             let search = appStorage.find(x => x.id === id) || [];
             return `
             <div id=service-id-${id} class="additional-services-item">
                 <h3 class="additional-services-item__title">${name}</h3>
                 <div class="additional-services-info">
-                    <div class="additional-services-info__img"></div>
+                    <img class="additional-services-info__img" src="${img}" alt="">
                     <p class="additional-services-info__price">${price} zł</p>
                 </div>
                 <div class="quantity-buttons">
@@ -138,39 +143,30 @@ let generateThirdService = () => {
 
 generateThirdService();
 
-// Generate Fourth Service function
-let generateFourthService = () => {
-    const filterQuery = { category: "Sprzątanie nagrobków" };
+// Generate Additional Third Service Box function
+let generateAdditionalThirdServiceBox = () => {
+    const filterQuery = { category: "Mobilne sprzątanie samochodu - usługa dodatkowa" };
 
     const filteredData = orderItemsData.filter(item => Object.keys(filterQuery).every(key => item[key] === filterQuery[key]))
     console.log(filteredData);
 
-    return (fourthService.innerHTML = filteredData
+    return (additionalThirdServiceBox.innerHTML = filteredData
         .map(x => {
-            let { id, category, name, price } = x;
+            let { id, category, name, img, price } = x;
             let search = appStorage.find(x => x.id === id) || [];
             return `
-            <div id=service-id-${id} class="order-package">
-                <h3 class="order-package__title">${name}</h3>
-                <p class="order-package__price">${price} zł</p>
-                <div class="package-description">
-                    <h3 class="package-description__title">Zakres obejmuje:</h3>
-                    <ul class="package-description-info">
-                        <li class="package-description-info__item">1 nagrobek</li>
-                        <li class="package-description-info__item">usuwanie wypalonych zniczy</li>
-                        <li class="package-description-info__item">usuwanie zwiędłych kwiatów</li>
-                        <li class="package-description-info__item">grabanie liści</li>
-                        <li class="package-description-info__item">wyrzucenie śmieci</li>
-                        <li class="package-description-info__item">impregnacja specjalnym środkiem</li>
-                    </ul>
+            <div id=service-id-${id} class="additional-services-item">
+                <h3 class="additional-services-item__title">${name}</h3>
+                <div class="additional-services-info">
+                    <img class="additional-services-info__img" src="${img}" alt="">
+                    <p class="additional-services-info__price">${price} zł</p>
                 </div>
-                <p class="order-package__info-quantity">Podaj ilość:</p>
                 <div class="quantity-buttons">
-                    <button onclick="decrement(${id})" class="quantity-buttons__button"> - </button> 
+                    <button onclick="decrement(${id})" class="quantity-buttons__button additional-services-button"> - </button> 
                     <div id=${id} class="quantity">
                     ${search.item === undefined ? 0 : search.item}
                     </div>
-                    <button onclick="increment(${id})" class="quantity-buttons__button"> + </button>
+                    <button onclick="increment(${id})" class="quantity-buttons__button additional-services-button"> + </button>
                 </div>
             </div>
             `;
@@ -178,7 +174,132 @@ let generateFourthService = () => {
         .join(''));
 };
 
+generateAdditionalThirdServiceBox();
+
+// Generate Fourth Service function
+let generateFourthService = () => {
+    const filterQuery = { name: "Pakiet Podstawowy" };
+
+    const filteredData = orderItemsData.filter(item => Object.keys(filterQuery).every(key => item[key] === filterQuery[key]))
+    console.log(filteredData);
+
+    return (fourthServiceOne.innerHTML = filteredData
+        .map(x => {
+            let { id, category, name, price, quantity, service1, service2, service3, service4, service5, service6, service7, service8, service9, service10, service11, service12, service13, service14, service15 } = x;
+            let search = appStorage.find(x => x.id === id) || [];
+            return `
+                <div id=service-id-${id} >
+                    <h3 class="order-package__title">${name}</h3>
+                    <p class="order-package__price">${price} zł</p>
+                    <div class="package-description">
+                        <h3 class="package-description__title">Zakres obejmuje:</h3>
+                        <ul class="package-description-info">
+                            <li class="package-description-info__item">${quantity}</li>
+                            <li class="package-description-info__item">${service1}</li>
+                            <li class="package-description-info__item">${service2}</li>
+                            <li class="package-description-info__item">${service3}</li>
+                            <li class="package-description-info__item">${service4}</li>
+                            <li class="package-description-info__item">${service5}</li>
+                            <li class="package-description-info__item">${service6}</li>
+                            <li class="package-description-info__item">${service7}</li>
+                            <li class="package-description-info__item">${service8}</li>
+                        </ul>
+                    </div>
+                    <p class="order-package__info-quantity">Podaj ilość:</p>
+                    <div class="quantity-buttons">
+                        <button onclick="decrement(${id})" class="quantity-buttons__button quantity-buttons__button--modified"> - </button> 
+                        <div id=${id} class="quantity">
+                        ${search.item === undefined ? 0 : search.item}
+                        </div>
+                        <button onclick="increment(${id})" class="quantity-buttons__button quantity-buttons__button--modified"> + </button>
+                    </div>
+                </div>
+            `;
+            
+        })
+        .join(''));
+};
+
 generateFourthService();
+
+let generateFourthServiceTwo = () => {
+    const filterQuery = { name: "Pakiet Premium" };
+
+    const filteredData = orderItemsData.filter(item => Object.keys(filterQuery).every(key => item[key] === filterQuery[key]))
+    console.log(filteredData);
+
+    return (fourthServiceTwo.innerHTML = filteredData
+        .map(x => {
+            let { id, category, name, price, service9, service10, service11, service12 } = x;
+            let search = appStorage.find(x => x.id === id) || [];
+            return `
+                <div id=service-id-${id} >
+                    <h3 class="order-package__title">${name}</h3>
+                    <p class="order-package__price">${price} zł</p>
+                    <div class="package-description">
+                        <h3 class="package-description__title">Zakres obejmuje:</h3>
+                        <ul class="package-description-info">
+                            <li class="package-description-info__item">${service9}</li>
+                            <li class="package-description-info__item">${service10}</li>
+                            <li class="package-description-info__item">${service11}</li>
+                            <li class="package-description-info__item">${service12}</li>
+                        </ul>
+                    </div>
+                    <p class="order-package__info-quantity">Podaj ilość:</p>
+                    <div class="quantity-buttons">
+                        <button onclick="decrement(${id})" class="quantity-buttons__button quantity-buttons__button--modified"> - </button> 
+                        <div id=${id} class="quantity">
+                        ${search.item === undefined ? 0 : search.item}
+                        </div>
+                        <button onclick="increment(${id})" class="quantity-buttons__button quantity-buttons__button--modified"> + </button>
+                    </div>
+                </div>
+            `;
+            
+        })
+        .join(''));
+};
+
+generateFourthServiceTwo();
+
+let generateFourthServiceThree = () => {
+    const filterQuery = { name: "Pakiet Złoty" };
+
+    const filteredData = orderItemsData.filter(item => Object.keys(filterQuery).every(key => item[key] === filterQuery[key]))
+    console.log(filteredData);
+
+    return (fourthServiceThree.innerHTML = filteredData
+        .map(x => {
+            let { id, category, name, price, service13, service14, service15 } = x;
+            let search = appStorage.find(x => x.id === id) || [];
+            return `
+                <div id=service-id-${id} >
+                    <h3 class="order-package__title">${name}</h3>
+                    <p class="order-package__price">${price} zł</p>
+                    <div class="package-description">
+                        <h3 class="package-description__title">Zakres obejmuje:</h3>
+                        <ul class="package-description-info">
+                            <li class="package-description-info__item">${service13}</li>
+                            <li class="package-description-info__item">${service14}</li>
+                            <li class="package-description-info__item">${service15}</li>
+                        </ul>
+                    </div>
+                    <p class="order-package__info-quantity">Podaj ilość:</p>
+                    <div class="quantity-buttons">
+                        <button onclick="decrement(${id})" class="quantity-buttons__button quantity-buttons__button--modified"> - </button> 
+                        <div id=${id} class="quantity">
+                        ${search.item === undefined ? 0 : search.item}
+                        </div>
+                        <button onclick="increment(${id})" class="quantity-buttons__button quantity-buttons__button--modified"> + </button>
+                    </div>
+                </div>
+            `;
+            
+        })
+        .join(''));
+};
+
+generateFourthServiceThree();
 
 // Generate Additional Basic Services Box function
 let generateAdditionalServicesBoxFourthService = () => {
@@ -189,13 +310,13 @@ let generateAdditionalServicesBoxFourthService = () => {
 
     return (additionalServicesBoxFourthService.innerHTML = filteredData
         .map(x => {
-            let { id, category, name, price } = x;
+            let { id, category, name, img, price } = x;
             let search = appStorage.find(x => x.id === id) || [];
             return `
-            <div id=service-id-${id} class="additional-services-item">
+            <div id=service-id-${id} class="additional-services-item additional-services-item--modified">
                 <h3 class="additional-services-item__title">${name}</h3>
                 <div class="additional-services-info">
-                    <div class="additional-services-info__img"></div>
+                    <img class="additional-services-info__img" src="${img}" alt="">
                     <p class="additional-services-info__price">${price} zł</p>
                 </div>
                 <div class="quantity-buttons">
@@ -379,6 +500,7 @@ let clearCart = () => {
     generateAdditionalBasicServBox();
     generateSecondService();
     generateThirdService();
+    generateAdditionalThirdServiceBox();
     generateFourthService();
     generateAdditionalServicesBoxFourthService();
     localStorage.setItem('data', JSON.stringify(appStorage));
