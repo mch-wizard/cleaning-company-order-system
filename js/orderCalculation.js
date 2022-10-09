@@ -17,6 +17,8 @@ let label = document.querySelector('#cart-label');
 let summaryInfo = document.querySelector('#summary-info-box');
 let summaryLabel = document.querySelector('#summary-label');
 
+let orderForm = document.querySelector('#order-form')
+
 let orderItemsBox = document.querySelector('#orderItemsBox');
 let orderItemsSummary = document.querySelector('#orderItemsSummary');
 
@@ -400,13 +402,12 @@ let generateFormInputItems = () => {
             .join(''));
     } else {
         orderItemsSummary.innerHTML = ``;
-        orderItemsBox.innerHTML = `
-            <input type="hidden" id="orderItemForm" "name="Brak_zamówienia:" value="Nie wybrano usługi">
-        `;
+        orderItemsBox.innerHTML = ``;
     };
 };
 
 generateFormInputItems();
+
 
 // other increment function
 let otherIncrement = id => {
@@ -526,8 +527,7 @@ let totalAmount = () => {
 
         label.innerHTML = `
         <div class="selected-payment">
-            <input type="hidden" id="selected-payment" name="selected-payment" value="Płatność gotówką na miejscu">
-            <label for="selected-payment">Płatność gotówką na miejscu</label>
+            <p>Płatność gotówką na miejscu</p>
         </div>
         <div class="cart-summary-box">
             <h4 class="cart-summary-box__info">Do zapłaty:</h4>
@@ -538,8 +538,7 @@ let totalAmount = () => {
 
         summaryLabel.innerHTML = `
         <div class="selected-payment">
-            <input type="hidden" id="selected-payment" name="selected-payment" value="Płatność gotówką na miejscu">
-            <label for="selected-payment">Płatność gotówką na miejscu</label>
+            <p>Płatność gotówką na miejscu</p>
         </div>
         <div class="cart-summary-box">
             <h4 class="cart-summary-box__info">Do zapłaty:</h4>
