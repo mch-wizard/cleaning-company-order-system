@@ -435,14 +435,17 @@
         <section class="form-details">
             <h2 class="form-details__title">Dane kontaktowe</h2>
             <p class="form-details__info">Prosimy wypełnić poniższe dane:</p>
-            <form action="https://formsubmit.co/mch.wizard@gmail.com" method="POST" enctype="multipart/form-data" class="form">
-                <input type="hidden" name="_next" value="http://127.0.0.1:5501/pages/dziekujemy.html">
-                <input type="hidden" name="_subject" value="Nowe zamówienie! Clean It Now - Warszawa">
+
+            <div id="order-form"></div>
+            
+            <form action="https://kwesforms.com/api/foreign/forms/d9zFoPYXgzNKROUYRf5k"  class="kwes-form form">
                 <!-- clean.it.now.wwa@gmail.com -->
-                <input type="hidden" name="_cc" value="clean.it.now.wwa@gmail.com,mchpro0@gmail.com">
+                <!-- <input type="hidden" name="_next" value="http://127.0.0.1:5501/pages/dziekujemy.html">
+                <input type="hidden" name="_subject" value="Nowe zamówienie! Clean It Now - Warszawa">
+                <input type="hidden" name="_cc" value="mchpro0@gmail.com">
                 <input type="text" name="_honey" style="display:none">
                 <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_template" value="table"> -->
 
                 
                 <input type="hidden" id="orderItems"name="Zamówienie:" value="">
@@ -597,9 +600,11 @@
         <p class="footer__info">2022 &copy; CLEAN IT NOW</p>
     </footer>
 
+    
     <script src="js/menu.js"></script>
     <script src="js/main.js"></script>
     <script src="js/data.js"></script>
     <script src="js/orderCalculation.js"></script>
+    <script src="https://kwesforms.com/v2/kwes-script.js" defer></script>
 </body>
 </html>
