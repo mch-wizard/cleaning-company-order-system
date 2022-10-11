@@ -435,20 +435,16 @@
         <section class="form-details">
             <h2 class="form-details__title">Dane kontaktowe</h2>
             <p class="form-details__info">Prosimy wypełnić poniższe dane:</p>
-
-            <div id="order-form"></div>
-            
-            <form action="https://kwesforms.com/api/foreign/forms/d9zFoPYXgzNKROUYRf5k"  class="kwes-form form">
-                <!-- clean.it.now.wwa@gmail.com -->
+            <!-- clean.it.now.wwa@gmail.com -->
                 <!-- <input type="hidden" name="_next" value="http://127.0.0.1:5501/pages/dziekujemy.html">
                 <input type="hidden" name="_subject" value="Nowe zamówienie! Clean It Now - Warszawa">
                 <input type="hidden" name="_cc" value="mchpro0@gmail.com">
                 <input type="text" name="_honey" style="display:none">
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_template" value="table"> -->
+            
+            <form class="kwes-form form" action="https://kwesforms.com/api/foreign/forms/d9zFoPYXgzNKROUYRf5k">
 
-                
-                <input type="hidden" id="orderItems"name="Zamówienie:" value="">
                 <div id="orderItemsBox"></div>
                 <div id="orderItemsSummary">
                     
@@ -559,6 +555,7 @@
                     <label for="formAdditionalInformationOrder" class="form-label">Dodatkowe informacje:</label>
                     <textarea name="Dodatkowe_informacje:" id="formAdditionalInformationOrder" class="textarea" placeholder="uwagi, pytania, dodatkowe informacje, inny adres"></textarea>
                 </div>
+
                 <div class="form-button">
                     <button type="submit" id="formSubmit" class="form-submit">Zamawiam</button>
                 </div>

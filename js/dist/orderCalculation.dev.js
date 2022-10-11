@@ -14,7 +14,6 @@ var shoppingCart = document.querySelector('#cart-box');
 var label = document.querySelector('#cart-label');
 var summaryInfo = document.querySelector('#summary-info-box');
 var summaryLabel = document.querySelector('#summary-label');
-var orderForm = document.querySelector('#order-form');
 var orderItemsBox = document.querySelector('#orderItemsBox');
 var orderItemsSummary = document.querySelector('#orderItemsSummary');
 var appStorage = JSON.parse(localStorage.getItem('data')) || []; // Generate First Service function
@@ -164,14 +163,7 @@ var generateFourthService = function generateFourthService() {
         service5 = x.service5,
         service6 = x.service6,
         service7 = x.service7,
-        service8 = x.service8,
-        service9 = x.service9,
-        service10 = x.service10,
-        service11 = x.service11,
-        service12 = x.service12,
-        service13 = x.service13,
-        service14 = x.service14,
-        service15 = x.service15;
+        service8 = x.service8;
     var search = appStorage.find(function (x) {
       return x.id === id;
     }) || [];
@@ -439,3 +431,4 @@ var totalAmount = function totalAmount() {
 };
 
 totalAmount();
+window.kwesFormsInitialize();

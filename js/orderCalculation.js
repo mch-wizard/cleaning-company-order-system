@@ -17,8 +17,6 @@ let label = document.querySelector('#cart-label');
 let summaryInfo = document.querySelector('#summary-info-box');
 let summaryLabel = document.querySelector('#summary-label');
 
-let orderForm = document.querySelector('#order-form')
-
 let orderItemsBox = document.querySelector('#orderItemsBox');
 let orderItemsSummary = document.querySelector('#orderItemsSummary');
 
@@ -187,7 +185,7 @@ let generateFourthService = () => {
 
     return (fourthServiceOne.innerHTML = filteredData
         .map(x => {
-            let { id, category, name, price, quantity, service1, service2, service3, service4, service5, service6, service7, service8, service9, service10, service11, service12, service13, service14, service15 } = x;
+            let { id, category, name, price, quantity, service1, service2, service3, service4, service5, service6, service7, service8 } = x;
             let search = appStorage.find(x => x.id === id) || [];
             return `
                 <div id=service-id-${id} >
@@ -370,6 +368,7 @@ let generateSummaryItems = () => {
             .map(x => {
                 let { id } = x;
                 let search = orderItemsData.find(x => x.id === id) || [];
+
                 return `
                     <div class="cart-item">
                         <p class="cart-item__title">${search.category} - ${search.name}:</p>
@@ -407,7 +406,6 @@ let generateFormInputItems = () => {
 };
 
 generateFormInputItems();
-
 
 // other increment function
 let otherIncrement = id => {
@@ -555,3 +553,4 @@ let totalAmount = () => {
 };
 
 totalAmount();
+window.kwesFormsInitialize();
