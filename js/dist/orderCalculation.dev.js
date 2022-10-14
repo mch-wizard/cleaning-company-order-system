@@ -359,6 +359,7 @@ var increment = function increment(id) {
   generateFormInputItems();
   update(selectedItem.id);
   localStorage.setItem('data', JSON.stringify(appStorage));
+  window.kwesFormsInitialize();
 }; // decrement function
 
 
@@ -380,6 +381,7 @@ var decrement = function decrement(id) {
   generateSummaryItems();
   generateFormInputItems();
   localStorage.setItem('data', JSON.stringify(appStorage));
+  window.kwesFormsInitialize();
 }; // update function
 
 
@@ -390,6 +392,7 @@ var update = function update(id) {
   console.log(search.item);
   document.getElementById(id).innerHTML = search.item;
   totalAmount();
+  window.kwesFormsInitialize();
 }; // clear cart function
 
 
@@ -408,6 +411,7 @@ var clearCart = function clearCart() {
   generateFourthServiceThree();
   generateAdditionalServicesBoxFourthService();
   localStorage.setItem('data', JSON.stringify(appStorage));
+  window.kwesFormsInitialize();
 }; // Total Amount function
 
 
@@ -432,5 +436,4 @@ var totalAmount = function totalAmount() {
 };
 
 totalAmount(); // How to properly add window.kwesFormsInitialize ()?
-
-form.addEventListener('Loading', window.kwesFormsInitialize());
+// form.addEventListener('Loading', window.kwesFormsInitialize())

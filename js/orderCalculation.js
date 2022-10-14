@@ -452,9 +452,10 @@ let increment = id => {
     generateCartItems();
     generateSummaryItems();
     generateFormInputItems();
-
+    
     update(selectedItem.id);
     localStorage.setItem('data', JSON.stringify(appStorage))
+    window.kwesFormsInitialize();
 };
 
 // decrement function
@@ -477,6 +478,7 @@ let decrement = id => {
     generateSummaryItems();
     generateFormInputItems();
     localStorage.setItem('data', JSON.stringify(appStorage));
+    window.kwesFormsInitialize()
 
 };
 
@@ -489,6 +491,7 @@ let update = id => {
     document.getElementById(id).innerHTML = search.item;
 
     totalAmount();
+    window.kwesFormsInitialize()
 };
 
 // clear cart function
@@ -507,6 +510,7 @@ let clearCart = () => {
     generateFourthServiceThree();
     generateAdditionalServicesBoxFourthService();
     localStorage.setItem('data', JSON.stringify(appStorage));
+    window.kwesFormsInitialize()
 };
 
 // Total Amount function
@@ -557,4 +561,4 @@ let totalAmount = () => {
 totalAmount();
 
 // How to properly add window.kwesFormsInitialize ()?
-form.addEventListener('Loading', window.kwesFormsInitialize())
+// form.addEventListener('Loading', window.kwesFormsInitialize())
