@@ -409,30 +409,6 @@ let generateFormInputItems = () => {
 
 generateFormInputItems();
 
-// other increment function
-let otherIncrement = id => {
-    let selectedItem = id;
-    let search = appStorage.find(x => x.id === selectedItem.id);
-
-    if (search === undefined) {
-        appStorage.push({
-            id: selectedItem.id,
-            item: 1,
-        });
-    } else {
-        search.item += 1;
-    };
-
-    console.log(appStorage);
-
-    generateCartItems();
-    generateSummaryItems();
-    // generateFormInputItems();
-
-    update(selectedItem.id);
-    localStorage.setItem('data', JSON.stringify(appStorage))
-};
-
 // increment function
 let increment = id => {
     let selectedItem = id;

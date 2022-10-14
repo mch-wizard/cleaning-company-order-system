@@ -310,32 +310,7 @@ var generateFormInputItems = function generateFormInputItems() {
   ;
 };
 
-generateFormInputItems(); // other increment function
-
-var otherIncrement = function otherIncrement(id) {
-  var selectedItem = id;
-  var search = appStorage.find(function (x) {
-    return x.id === selectedItem.id;
-  });
-
-  if (search === undefined) {
-    appStorage.push({
-      id: selectedItem.id,
-      item: 1
-    });
-  } else {
-    search.item += 1;
-  }
-
-  ;
-  console.log(appStorage);
-  generateCartItems();
-  generateSummaryItems(); // generateFormInputItems();
-
-  update(selectedItem.id);
-  localStorage.setItem('data', JSON.stringify(appStorage));
-}; // increment function
-
+generateFormInputItems(); // increment function
 
 var increment = function increment(id) {
   var selectedItem = id;
