@@ -20,6 +20,8 @@ let summaryLabel = document.querySelector('#summary-label');
 let orderItemsBox = document.querySelector('#orderItemsBox');
 let orderItemsSummary = document.querySelector('#orderItemsSummary');
 
+let form = document.querySelector('#orderForm');
+
 let appStorage = JSON.parse(localStorage.getItem('data')) || [];
 
 // Generate First Service function
@@ -395,7 +397,7 @@ let generateFormInputItems = () => {
                 let { id } = x;
                 let search = orderItemsData.find(x => x.id === id) || [];
                 return `
-                    <input type="hidden" id="service-${search.id}" "name="${search.category}" value="${search.name}: ${search.price} zł">
+                    <input type="hidden" id="service-${search.id}" "name="Zamowienie" value="${search.category} - ${search.name}: ${search.price} zł">
                 `;
             })
             .join(''));
@@ -546,11 +548,13 @@ let totalAmount = () => {
         `;
 
         orderItemsSummary.innerHTML = `
-        <input type="hidden" id="orderItemsSummaryForm" "name="Do_zapłaty:" value="${roundedAmount} zł">
-        <input type="hidden" id="paymentsForm" name="Sposób_płatnośći:" value="Płatność gotówką na miejscu">
+        <input type="hidden" id="orderItemsSummaryForm" "name="Do_zaplaty" value="${roundedAmount} zł">
+        <input type="hidden" id="paymentsForm" name="Sposob_platnosci" value="Płatność gotówką na miejscu">
         `;
     } else return;
 };
 
 totalAmount();
-window.kwesFormsInitialize();
+
+// How to properly add window.kwesFormsInitialize ()?
+form.addEventListener('Loading', window.kwesFormsInitialize())
