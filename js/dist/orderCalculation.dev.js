@@ -300,7 +300,7 @@ var generateFormInputItems = function generateFormInputItems() {
       var search = orderItemsData.find(function (x) {
         return x.id === id;
       }) || [];
-      return "\n                    <input type=\"hidden\" id=\"service-".concat(search.id, "\" \"name=\"Zamowienie\" value=\"").concat(search.category, " - ").concat(search.name, ": ").concat(search.price, " z\u0142\">\n                ");
+      return "\n                    <input type=\"hidden\" id=\"service-".concat(search.id, "\" name=\"").concat(search.id, "\" value=\"").concat(search.name, ": ").concat(search.price, " z\u0142\"> \n                ");
     }).join('');
   } else {
     orderItemsSummary.innerHTML = "";
@@ -406,9 +406,8 @@ var totalAmount = function totalAmount() {
     var roundedAmount = amount.toFixed(2);
     label.innerHTML = "\n        <div class=\"selected-payment\">\n            <p>P\u0142atno\u015B\u0107 got\xF3wk\u0105 na miejscu</p>\n        </div>\n        <div class=\"cart-summary-box\">\n            <h4 class=\"cart-summary-box__info\">Do zap\u0142aty:</h4>\n            <h4 class=\"cart-summary-box__value\">".concat(roundedAmount, " z\u0142</h4>\n        </div>\n        <button onclick=\"clearCart()\" class=\"removeAll\">Usu\u0144 wszystko</button>\n        ");
     summaryLabel.innerHTML = "\n        <div class=\"selected-payment\">\n            <p>P\u0142atno\u015B\u0107 got\xF3wk\u0105 na miejscu</p>\n        </div>\n        <div class=\"cart-summary-box\">\n            <h4 class=\"cart-summary-box__info\">Do zap\u0142aty:</h4>\n            <h4 class=\"cart-summary-box__value\">".concat(roundedAmount, " z\u0142</h4>\n        </div>\n        <button onclick=\"clearCart()\" class=\"removeAll\">Usu\u0144 wszystko</button>\n        ");
-    orderItemsSummary.innerHTML = "\n        <input type=\"hidden\" id=\"orderItemsSummaryForm\" \"name=\"Do_zaplaty\" value=\"".concat(roundedAmount, " z\u0142\">\n        <input type=\"hidden\" id=\"paymentsForm\" name=\"Sposob_platnosci\" value=\"P\u0142atno\u015B\u0107 got\xF3wk\u0105 na miejscu\">\n        ");
+    orderItemsSummary.innerHTML = "\n        <input type=\"hidden\" id=\"orderItemsSummaryForm\" name=\"Do_zaplaty\" value=\"".concat(roundedAmount, " z\u0142\">\n        <input type=\"hidden\" id=\"paymentsForm\" name=\"Sposob_platnosci\" value=\"P\u0142atno\u015B\u0107 got\xF3wk\u0105 na miejscu\">\n        ");
   } else return;
 };
 
-totalAmount(); // How to properly add window.kwesFormsInitialize ()?
-// form.addEventListener('Loading', window.kwesFormsInitialize())
+totalAmount();

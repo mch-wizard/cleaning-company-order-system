@@ -397,7 +397,7 @@ let generateFormInputItems = () => {
                 let { id } = x;
                 let search = orderItemsData.find(x => x.id === id) || [];
                 return `
-                    <input type="hidden" id="service-${search.id}" "name="Zamowienie" value="${search.category} - ${search.name}: ${search.price} zł">
+                    <input type="hidden" id="service-${search.id}" name="${search.id}" value="${search.name}: ${search.price} zł"> 
                 `;
             })
             .join(''));
@@ -528,13 +528,10 @@ let totalAmount = () => {
         `;
 
         orderItemsSummary.innerHTML = `
-        <input type="hidden" id="orderItemsSummaryForm" "name="Do_zaplaty" value="${roundedAmount} zł">
+        <input type="hidden" id="orderItemsSummaryForm" name="Do_zaplaty" value="${roundedAmount} zł">
         <input type="hidden" id="paymentsForm" name="Sposob_platnosci" value="Płatność gotówką na miejscu">
         `;
     } else return;
 };
 
 totalAmount();
-
-// How to properly add window.kwesFormsInitialize ()?
-// form.addEventListener('Loading', window.kwesFormsInitialize())
