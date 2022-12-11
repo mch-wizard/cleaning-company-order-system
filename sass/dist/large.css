@@ -94,6 +94,18 @@
   flex-direction: row;
 }
 
+.form-label {
+  width: 500px;
+}
+
+.form-input {
+  width: 500px;
+}
+
+.textarea {
+  width: 500px;
+}
+
 .contact__title {
   padding-bottom: 40px;
   font-size: 35px;
